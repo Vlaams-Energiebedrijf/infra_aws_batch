@@ -16,7 +16,7 @@ resource "aws_batch_job_definition" "batch_job_definition" {
         "executionRoleArn": "${var.execution_role_arn}",
         "jobRoleArn": "${var.job_role_arn}",
         "vcpus": 1,
-        "memory": 2048,
+        "memory": 2048
     }
 CONTAINER_PROPERTIES
 }
@@ -39,7 +39,7 @@ resource "aws_batch_job_definition" "batch_job_definition_on_demand" {
         "executionRoleArn": "${var.execution_role_arn}",
         "jobRoleArn": "${var.job_role_arn}",
         "vcpus": 24,
-        "memory": 50000,
+        "memory": 50000
     }
 CONTAINER_PROPERTIES
 }
@@ -63,7 +63,7 @@ resource "aws_batch_job_definition" "batch_job_definition_memory" {
         "executionRoleArn": "${var.execution_role_arn}",
         "jobRoleArn": "${var.job_role_arn}",
         "vcpus": 4,
-        "memory": 32768,
+        "memory": 32768
     }
 CONTAINER_PROPERTIES
 }
