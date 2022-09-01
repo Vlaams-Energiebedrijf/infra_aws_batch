@@ -11,5 +11,5 @@ variable "environment" {
 variable "owner" {
   description = "Name of the owner of the resources. (team name)"
   type        = string
-  default     = "data team"
+  default     = "Data Team"
 }
