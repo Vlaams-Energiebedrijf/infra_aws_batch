@@ -3,11 +3,6 @@ variable "image_names" {
   type        = set(string)
 }
 
-variable "environment" {
-  description = "Which environment this module needs to be deployed to."
-  type        = string
-}
-
 variable "account_id" {
   description = "account id"
   type        = string

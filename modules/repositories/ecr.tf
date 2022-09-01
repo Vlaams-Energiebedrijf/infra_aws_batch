@@ -5,7 +5,6 @@ resource "aws_ecr_repository" "ecr_repository" {
   image_tag_mutability = "MUTABLE"
 
   tags = {
-    Environment = var.environment
     Terraform   = true
     Owner       = var.owner
     Name        = each.key

@@ -4,7 +4,6 @@ resource "aws_batch_job_definition" "batch_job_definition" {
     name = each.key
 
     tags = {
-        Environment = var.environment
         Terraform   = true
         Owner       = var.owner
         Name        = each.key
@@ -18,9 +17,6 @@ resource "aws_batch_job_definition" "batch_job_definition" {
         "jobRoleArn": "${var.job_role_arn}",
         "vcpus": 1,
         "memory": 2048,
-        "environment": [
-            {"name": "ENVIRONMENT", "value": "${var.environment}"}
-        ]
     }
 CONTAINER_PROPERTIES
 }
@@ -31,7 +27,6 @@ resource "aws_batch_job_definition" "batch_job_definition_on_demand" {
     name = "${each.key}-${var.on_demand_suffix}"
 
     tags = {
-        Environment = var.environment
         Terraform   = true
         Owner       = var.owner
         Name        = each.key
@@ -45,9 +40,6 @@ resource "aws_batch_job_definition" "batch_job_definition_on_demand" {
         "jobRoleArn": "${var.job_role_arn}",
         "vcpus": 24,
         "memory": 50000,
-        "environment": [
-            {"name": "ENVIRONMENT", "value": "${var.environment}"}
-        ]
     }
 CONTAINER_PROPERTIES
 }
@@ -59,7 +51,6 @@ resource "aws_batch_job_definition" "batch_job_definition_memory" {
     name = "${each.key}-${var.memory_suffix}"
 
     tags = {
-        Environment = var.environment
         Terraform   = true
         Owner       = var.owner
         Name        = each.key
@@ -73,15 +64,6 @@ resource "aws_batch_job_definition" "batch_job_definition_memory" {
         "jobRoleArn": "${var.job_role_arn}",
         "vcpus": 4,
         "memory": 32768,
-        "environment": [
-            {"name": "ENVIRONMENT", "value": "${var.environment}"}
-        ]
     }
 CONTAINER_PROPERTIES
 }
-
-
- 
-
-
-  
