@@ -1,4 +1,4 @@
-resource "aws_batch_fargate_job_definition" "fargate_batch_job_definition" {
+resource "aws_batch_job_definition" "fargate_batch_job_definition" {
 
     for_each = var.fargate_jobs
     name = each.value.job_name
