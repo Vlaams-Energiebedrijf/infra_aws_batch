@@ -6,7 +6,7 @@ resource "aws_batch_fargate_job_definition" "fargate_batch_job_definition" {
     tags = {
         Terraform   = true
         Owner       = var.owner
-        Name        = each.key
+        Name        = each.value.job_name
     }  
 
     type = "container"
@@ -20,7 +20,7 @@ resource "aws_batch_fargate_job_definition" "fargate_batch_job_definition" {
 
         environment = []
 
-        image   = "${var.account_id}.dkr.ecr.eu-west-1.amazonaws.com/${each.key}"
+        image   = "${var.account_id}.dkr.ecr.eu-west-1.amazonaws.com/${each.value.environment}-${each.value.job_name}"
 
         fargatePlatformConfiguration = {
             platformVersion = "LATEST"

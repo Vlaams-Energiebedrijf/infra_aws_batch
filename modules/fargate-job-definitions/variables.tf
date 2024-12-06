@@ -1,14 +1,3 @@
-variable "fargate_jobs" {
-  description = "A list containing images for which we want to create job definition."
-  type = list(
-    object(
-      {
-        job_name = string
-        memory = number
-        vcpu    = number
-      }))
-}
-
 variable "account_id" {
   description = "account id"
   type        = string
@@ -28,4 +17,16 @@ variable "execution_role_arn" {
 variable "job_role_arn" {
   description = "The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions. With IAM roles for Amazon ECS tasks, you can specify an IAM role that can be used by the containers in a task."
   type        = string
+}
+
+variable "fargate_jobs" {
+  description = "A list containing images for which we want to create job definition."
+  type        = list(
+    object(
+      {
+        job_name = string
+        environment = string
+        memory = number
+        vcpu    = number
+      }))
 }
