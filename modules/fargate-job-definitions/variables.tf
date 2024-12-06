@@ -22,6 +22,7 @@ variable "job_role_arn" {
 variable "fargate_jobs" {
   description = "A list containing images for which we want to create job definition."
   type        = list(object({
+        index = number
         job_name = string
         environment = string
         memory = string

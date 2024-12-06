@@ -1,13 +1,13 @@
 resource "aws_batch_job_definition" "fargate_batch_job_definition" {
 
-    for_each = {for fargate_batch_job_definition in var.fargate_jobs:  fargate_batch_job_definition.job_name => fargate_batch_job_definition}
+    for_each = {for fargate_batch_job_definition in var.fargate_jobs:  fargate_batch_job_definition.index => fargate_batch_job_definition}
     name = each.value.job_name
 
     tags = {
         Terraform   = true
         Owner       = var.owner
         Name        = each.value.job_name
-    }  
+    } 
 
     type = "container"
 
