@@ -26,7 +26,7 @@ variable "fargate_jobs" {
       {
         job_name = string
         environment = string
-        memory = number
-        vcpu    = number
+        memory = string
+        vcpu    = string
       }))
 }
