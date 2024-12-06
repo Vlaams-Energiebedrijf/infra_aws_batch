@@ -1,6 +1,6 @@
 resource "aws_batch_job_definition" "fargate_batch_job_definition" {
 
-    for_each = toset(var.fargate_jobs)
+    for_each = {for fargate_batch_job_definition in var.fargate_jobs:  fargate_batch_job_definition.job_name => fargate_batch_job_definition}
     name = each.value.job_name
 
     tags = {
