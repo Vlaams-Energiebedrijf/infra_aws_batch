@@ -1,7 +1,7 @@
 resource "aws_batch_job_definition" "fargate_batch_job_definition" {
 
     for_each = {for fargate_batch_job_definition in var.fargate_jobs:  fargate_batch_job_definition.index => fargate_batch_job_definition}
-    name = "${each.value.environment}-${each.value.job_name}-${each.value.vcpu}-${each.value.memory}"
+    name = "${each.value.environment}-${each.value.job_name}-${replace(each.value.vcpu, ".", "")}-${each.value.memory}"
 
     tags = {
         Terraform   = true
