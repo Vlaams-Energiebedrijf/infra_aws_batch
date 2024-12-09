@@ -21,7 +21,7 @@ resource "aws_batch_job_definition" "fargate_batch_job_definition" {
 
         environment = []
 
-        image   = "${var.account_id}.dkr.ecr.eu-west-1.amazonaws.com/${each.value.environment}-${each.value.job_name}"
+        image   = "${var.account_id}.dkr.ecr.eu-west-1.amazonaws.com/${each.value.environment}-veb-data-pipelines-${each.value.job_name}" // we add veb-data-pipelines for legacy compatibility
 
         fargatePlatformConfiguration = {
             platformVersion = "LATEST"
