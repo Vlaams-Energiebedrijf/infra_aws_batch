@@ -28,7 +28,7 @@ resource "aws_batch_job_definition" "fargate_batch_job_definition" {
         }
 
         networkConfiguration = {
-            assignPublicIp = "ENABLED"
+            assignPublicIp = "DISABLED"
         }
 
         resourceRequirements = [
